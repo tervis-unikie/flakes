@@ -28,11 +28,11 @@
               nix.settings = {
                 trusted-public-keys = [
 	          "cache.vedenemo.dev:8NhplARANhClUSWJyLVk4WMyy1Wb4rhmWW2u8AejH9E="
-                  "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+                  # "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
                 ];
                 substituters = [
                   "https://cache.vedenemo.dev"
-                  "https://cache.nixos.org"
+                  # "https://cache.nixos.org"
                 ];
               };
             };
