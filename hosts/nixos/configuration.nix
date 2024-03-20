@@ -116,6 +116,21 @@
     ];
   };
 
+  users.users.terwiz = {
+    isNormalUser = true;
+    description = "Tero Tervala";
+    extraGroups = [ "networkmanager" "wheel" ];
+    packages = with pkgs; [
+    #  firefox
+    #  thunderbird
+    ];
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDJau0tg0qHhqFVarjNOJLi+ekSZNNqxal4iRD/pwM5W tervis@tervis-thinkpad"
+    ];
+  };
+
+  nix.trustedUsers = [ "root" "@wheel" ];  
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
