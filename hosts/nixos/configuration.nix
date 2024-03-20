@@ -129,7 +129,7 @@
     ];
   };
 
-  nix.trustedUsers = [ "root" "@wheel" ];  
+  nix.settings.trusted-users = [ "root" "@wheel" ];  
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
