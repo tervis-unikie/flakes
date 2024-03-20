@@ -24,6 +24,8 @@
   boot.initrd.luks.devices."luks-dbc498c0-2b86-4d78-9ff7-79543407d73a".keyFile = "/crypto_keyfile.bin";
 
   nix.settings.experimental-features = "nix-command flakes";
+  # Avoid copying unecessary stuff over SSH
+  nix.settings.builders-use-substitutes = true;
 
   networking.hostName = "tervis-servu"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
