@@ -23,4 +23,12 @@ in {
       ./tervis-servu/configuration.nix
     ];
   };
+  tervis-x1 = lib.nixosSystem {
+    inherit system;
+    specialArgs = {inherit inputs user;};
+    modules = [
+      ./tervis-x1/hardware-configuration.nix
+      ./tervis-x1/configuration.nix
+    ];
+  };
 }

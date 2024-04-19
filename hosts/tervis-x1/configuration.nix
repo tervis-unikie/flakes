@@ -7,7 +7,7 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+      # ./hardware-configuration.nix
     ];
 
   # Bootloader.
@@ -15,7 +15,12 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   boot.initrd.luks.devices."luks-7b8af4b5-90c8-4ffa-85dc-598d93248692".device = "/dev/disk/by-uuid/7b8af4b5-90c8-4ffa-85dc-598d93248692";
-  networking.hostName = "nixos"; # Define your hostname.
+
+  nix.settings.experimental-features = "nix-command flakes";
+  # Avoid copying unecessary stuff over SSH
+  nix.settings.builders-use-substitutes = true;
+
+  networking.hostName = "tervis-x1"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -49,6 +54,14 @@
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
+  services.xserver.displayManager.gdm.autoSuspend = false;
+
+  # Disable the GNOME3/GDM auto-suspend feature that cannot be disabled in GUI!
+  # If no user is logged in, the machine will power down after 20 minutes.
+  systemd.targets.sleep.enable = false;
+  systemd.targets.suspend.enable = false;
+  systemd.targets.hibernate.enable = false;
+  systemd.targets.hybrid-sleep.enable = false;
 
   # Configure keymap in X11
   services.xserver = {
@@ -91,7 +104,12 @@
       firefox
     #  thunderbird
     ];
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDJau0tg0qHhqFVarjNOJLi+ekSZNNqxal4iRD/pwM5W tervis@tervis-thinkpad"
+    ];
   };
+
+  nix.settings.trusted-users = [ "root" "@wheel" ];
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -101,6 +119,9 @@
   environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
+    gitFull
+    screen
+    dnsutils
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -114,7 +135,7 @@
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+  services.openssh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
