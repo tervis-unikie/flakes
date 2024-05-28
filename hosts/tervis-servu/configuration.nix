@@ -121,6 +121,9 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  # Enable nix-ld which should allow vscode remoting
+  programs.nix-ld.enable = true;
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
