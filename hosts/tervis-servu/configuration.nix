@@ -132,6 +132,7 @@
     gitFull
     screen
     dnsutils
+    meld
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -145,6 +146,7 @@
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
+  services.openssh.forwardX11 = true;
   services.openssh.enable = true;
 
   # Open ports in the firewall.
