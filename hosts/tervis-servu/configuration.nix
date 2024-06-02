@@ -146,7 +146,7 @@
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  services.openssh.forwardX11 = true;
+  services.openssh.settings.X11Forwarding = true;
   services.openssh.enable = true;
 
   # Open ports in the firewall.
