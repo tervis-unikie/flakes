@@ -132,8 +132,29 @@
     "cache.ssrcdevops.tii.ae:oOrzj9iCppf+me5/3sN/BxEkp5SaFkHfKTPPZ97xXQk="
   ];
 
-  nix.settings.builders = lib.mkForce [
-    "ssh://hetzarm aarch64-linux"
+  nix.distributedBuilds = true;
+
+  nix.buildMachines = [
+    {
+      hostName = "hetzarm.vedenemo.dev";
+      system = "aarch64-linux";
+      maxJobs = 10;
+      speedFactor = 1;
+      supportedFeatures = ["nixos-test" "benchmark" "big-parallel" "kvm"];
+      mandatoryFeatures = [];
+      sshUser = "tervis";
+      sshKey = "/home/tervis/.ssh/hetzarm_id_ed25519";
+    }
+    {
+      hostName = "builder.vedenemo.dev";
+      systems = ["x86_64-linux" "i686-linux"];
+      maxJobs = 8;
+      speedFactor = 1;
+      supportedFeatures = ["nixos-test" "benchmark" "big-parallel" "kvm"];
+      mandatoryFeatures = [];
+      sshUser = "tervis";
+      sshKey = "/home/tervis/.ssh/hetzarm_id_ed25519";
+    }
   ];
 
   # Allow unfree packages
