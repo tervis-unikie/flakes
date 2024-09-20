@@ -113,6 +113,7 @@
     ];
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDJau0tg0qHhqFVarjNOJLi+ekSZNNqxal4iRD/pwM5W tervis@tervis-thinkpad"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHgcoyIqvv+yLra8TRhqkAejnCEGIFp1OJiSGJqPVWXu tervis@tervis-x1"
     ];
   };
 
