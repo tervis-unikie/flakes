@@ -144,7 +144,7 @@
       supportedFeatures = ["nixos-test" "benchmark" "big-parallel" "kvm"];
       mandatoryFeatures = [];
       sshUser = "tervis";
-      sshKey = "/home/tervis/.ssh/hetzarm_id_ed25519";
+      sshKey = "/home/tervis/.ssh/id_ed25519_hetzarm";
     }
     {
       hostName = "builder.vedenemo.dev";
@@ -154,7 +154,7 @@
       supportedFeatures = ["nixos-test" "benchmark" "big-parallel" "kvm"];
       mandatoryFeatures = [];
       sshUser = "tervis";
-      sshKey = "/home/tervis/.ssh/hetzarm_id_ed25519";
+      sshKey = "/home/tervis/.ssh/id_ed25519_hetzarm";
     }
   ];
 
