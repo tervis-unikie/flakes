@@ -71,9 +71,9 @@
   systemd.targets.hybrid-sleep.enable = false;
 
   # Configure keymap in X11
-  services.xserver = {
+  services.xserver.xkb = {
     layout = "fi";
-    xkbVariant = "winkeys";
+    variant = "winkeys";
   };
 
   # Configure console keymap
