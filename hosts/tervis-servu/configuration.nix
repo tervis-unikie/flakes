@@ -113,7 +113,8 @@
     ];
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDJau0tg0qHhqFVarjNOJLi+ekSZNNqxal4iRD/pwM5W tervis@tervis-thinkpad"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHgcoyIqvv+yLra8TRhqkAejnCEGIFp1OJiSGJqPVWXu tervis@tervis-x1"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKnamRgwnZzvZn8WdrrnH/v0SwnMS1RGh3QvRIq7eZ6e tervis@tervis-x1-gen12"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBrfzQeu1B+24OnuzYBENgwXmZplo7dCn7PhawngQ/yi tervis@tervis-x1"
     ];
   };
 
